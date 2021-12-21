@@ -1,0 +1,215 @@
+/*=====================================================  V_FP0
+ * Простая (и не слишком эффективная) подпрограмма
+ * однотонной заливки многоугольника методом построчного
+ * сканирования. Имеет место дублирование закраски
+ * строк.
+ * Более эффективная программа, практически не дублирующая
+ * занесение пикселов, - V_FP1 приведена далее в этом
+ * приложении.
+ */
+
+#include <stdio.h>
+#include <graphics.h>
+
+#define MAXARR 300  /* Макс кол-во вершин многоугольника  */
+#define MAXLST 300  /* Макс размер списка активных ребер  */
+
+
+/*---------------------------------------------------- FILSTR
+ * Заливает строку iy от ixn до ixk
+ *
+ * void FILSTR (int kod, int iy, int ixn, int ixk)
+ */
+void FILSTR (kod, iy, ixn, ixk)
+int kod, iy, ixn, ixk;
+{
+   while (ixn <= ixk) putpixel (ixn++, iy, kod);
+}  /* FILSTR */
+
+
+/*----------------------------------------------------   SORT
+ * Сортирует n элементов iarr по возрастанию
+ */
+void SORT (n, iarr)
+int  n, *iarr;
+{  int  ii, jj, kk, ll, min;
+   for (ii=0; ii<n; ++ii) {
+      min= iarr[ll= ii];
+      for (jj=ii+1; jj<n; ++jj)
+         if ((kk= iarr[jj]) < min) {ll= jj; min= kk; }
+      if (ll != ii) {iarr[ll]= iarr[ii]; iarr[ii]= min; }
+   }
+}  /* SORT */
+
+
+/*--------------- Глобалы процедуры закраски ---------------*/
+
+static int   KOD, NWER; /* Код заливки и количество вершин  */
+static float *pt_X;     /* Массивы входных координат вершин */
+static float *pt_Y;
+
+static int   ntek;          /* Номер текущей вершины */
+
+/* Список активных ребер */
+static int   idlspi;        /* Длина списка активных ребер */
+static int   IYREB[MAXLST]; /* Макс Y-коорд активных ребер */
+static float RXREB[MAXLST]; /* Тек  X-коорд активных ребер */
+static float RPRIR[MAXLST]; /* X-приращение на 1 шаг по Y  */
+
+
+/*---------------------------------------------------- OBRREB
+ * По данным :
+ *     NWER - количество вершин,
+ *     ntek - номер текущей вершины,
+ *     isd = -1/+1 - сдвиг для вычисления номера
+ *           соседней вершины - слева/справа
+ *     вычисляет DY,
+ *     Если DY <  0 то вершина уже обработана,
+ *     Если DY == 0 то вершины на одном Y, т.е.
+ *                     строится горизонтальный отрезок,
+ *     Если DY >  0 то формируется новый элемент списка
+ *                     активных ребер
+ */
+static void OBRREB (isd)
+int   isd;
+{
+   int   inext,iyt,ixt;
+   float xt, xnext, dy;
+
+   inext= ntek + isd;
+   if (inext < 1) inext= NWER;
+   if (inext > NWER) inext= 1;
+
+   dy= pt_Y[inext] - pt_Y[ntek];
+   if (dy < 0) goto RETOBR;
+   xnext= pt_X[inext];
+   xt= pt_X[ntek];
+   if (dy != 0) goto DYNE0;
+      iyt= pt_Y[ntek];
+      inext= xnext;
+      ixt= xt;
+      FILSTR (KOD, iyt, inext, ixt);
+      goto RETOBR;
+DYNE0:
+   idlspi++;
+   IYREB[idlspi]= pt_Y[inext];
+   RXREB[idlspi]= xt;
+   RPRIR[idlspi]= (xnext - xt) / dy;
+RETOBR:;
+}  /* OBRREB */
+
+/*----------------------------------------------------  V_FP0
+ * Однотонно заливает многоугольник,
+ * заданный координатами вершин
+ *
+ * void V_FP0 (int pixel, int kol, float *Px, float *Py)
+ *
+ */
+void V_FP0 (pixel, kol, Px, Py)
+int  pixel, kol;  float *Px, *Py;
+{
+int  ii, jj, kk;
+int  iymin;         /* Мин  Y-координата многоугольн   */
+int  iymax;         /* Макс Y-координата многоугольн   */
+int  iysled;        /* Y-коорд появления новых вершин  */
+int  iytek;
+int  ikledg;        /* Кол-во вершин с данным iytek    */
+int  ibgind;        /* Нач индекс таких вершин         */
+int  iedg[MAXARR];  /* Y-коорд вершин по возрастанию   */
+int  inom[MAXARR];  /* Их номера в исходном массиве Py */
+int  irabx[MAXLST]; /* X-коорд пересечений в строке сканир */
+
+   KOD= pixel;      /* Параметры в глобалы */
+   NWER= kol;
+   pt_X= Px;
+   pt_Y= Py;
+
+/* Построение массивов Y и их номеров */
+   for (ii=1; ii<=kol; ++ii) {
+      iedg[ii]= Py[ii]; inom[ii]= ii;
+   }
+
+/* Cовместная сортировка Y-коорд вершин и их номеров */
+   for (ii=1;  ii <= kol;  ++ii) {
+      iymin= iedg[ii];
+      ntek= ii;
+      for (jj=ii+1;  jj <= kol;  ++jj)
+         if (iedg[jj] < iymin) {iymin= iedg[jj]; ntek= jj; }
+      if (ntek != ii) {
+         iedg[ntek]= iedg[ii]; iedg[ii]= iymin;
+         iymin= inom[ntek];
+         inom[ntek]= inom[ii]; inom[ii]= iymin;
+      }
+   }
+
+   idlspi= 0;                   /* Начальные присвоения */
+   ibgind= 1;
+   iytek= iedg[1];
+   iymax= iedg[kol];
+
+/* Цикл раскраски */
+
+/* ikledg = кол-во вершин с данным iytek
+ * ibgind = индексы таковых в массиве inom
+ */
+FORM_EDGES:
+   ikledg= 0;
+   for (ii=ibgind; ii<=kol; ++ii)
+      if (iedg[ii] != iytek) break; else ikledg++;
+
+/* Цикл построения списка активных ребер
+ * и закрашивание горизонтальных ребер
+ */
+
+/* Построение списка активных ребер (САР) */
+
+   for (ii=1; ii<=ikledg; ++ii) {
+      ntek= inom[ ibgind+ii-1];     /* Исх ном тек вершины */
+      OBRREB (-1);                  /* DY с соседями затем */
+      OBRREB (+1);                  /* либо отказ,  либо   */
+                                    /* горизонталь, либо   */
+   }                                /* измен списка активных*/
+
+   if (!idlspi) goto KOHGFA;
+
+   ii= ibgind + ikledg;         /* Y ближайшей вершины */
+   iysled= iymax;
+   if (ii < kol) iysled= iedg[ii];
+
+/* Горизонтальная раскраска по списку */
+
+   for (ii=iytek; ii<=iysled; ++ii) {
+/* Выборка X-ов из списка активных ребер (САР) */
+      for (jj=1; jj <= idlspi; ++jj)
+         irabx[jj]= RXREB[jj];
+      SORT (idlspi, irabx+1);           /* Сортировка X-ов */
+      for (jj=1; jj<=idlspi-1; jj+= 2)  /* Заливка */
+         FILSTR (pixel, ii, irabx[jj], irabx[jj+1]);
+      if (ii == iysled) continue;
+      for (jj=1; jj <= idlspi; ++jj)    /* Перестройка САР */
+         RXREB[jj]= RXREB[jj] + RPRIR[jj];
+   }
+
+   if (iysled == iymax) goto KOHGFA;
+
+/* Выбрасывание из списка всех ребер с YMAK ребра = YSLED */
+
+   ii= 0;
+M1:ii++;
+M2:if (ii > idlspi) goto WYBROSILI;
+      if (IYREB[ii] != iysled) goto M1;
+         --idlspi;
+         for (jj=ii;  jj <= idlspi;  ++jj) {
+            IYREB[jj]= IYREB[kk= jj+1];
+            RXREB[jj]= RXREB[kk];
+            RPRIR[jj]= RPRIR[kk];
+         }
+         goto M2;
+WYBROSILI:
+   ibgind+= ikledg;
+   iytek= iysled;
+
+   goto FORM_EDGES;
+
+KOHGFA:;
+}  /* V_FP0 */

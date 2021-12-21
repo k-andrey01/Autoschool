@@ -1,0 +1,65 @@
+.ground{
+	-fx-background-color: #BCBABE;	
+}	
+
+.title{
+	-fx-font-family: Impact;
+	-fx-font-size: 26;
+	-fx-background-color: F1F1F2;
+	-fx-text-alignment: center;
+}
+.title1{
+	-fx-font-family: Impact;
+	-fx-font-size: 15;
+	-fx-background-color: F1F1F2;
+	-fx-text-alignment: center;
+}	
+.butn{
+	-fx-background-color: a1d6e2;
+	-fx-font-family: Impact;
+	-fx-font-size: 15;
+	-fx-background-radius: 10;
+	-fx-border-color: black;
+	-fx-border-radius: 10;
+}
+.butn2{
+	-fx-background-color: #f1f1f2;
+	-fx-font-family: Сomic Sans MS;
+	-fx-text-fill: black;
+	-fx-font-size: 14;
+	-fx-background-radius: 15;
+}	
+.butn3{
+	-fx-background-color: #1995ad;
+	-fx-font-family: Сomic Sans MS;
+	-fx-text-fill: black;
+	-fx-font-size: 14;
+	-fx-background-radius: 15;
+	-fx-border-color: black;
+	-fx-border-radius: 15;
+}	
+.butn3_1{
+	-fx-background-color: #1995ad;
+	-fx-font-family: Сomic Sans MS;
+	-fx-text-fill: black;
+	-fx-font-size: 14;
+	
+}
+.butn31{
+	-fx-background-color: #1995ad;
+	-fx-font-family: Сomic Sans MS;
+	-fx-text-fill: black;
+	-fx-font-size: 11;
+	
+}	
+.butn: hover{
+	-fx-background-color:#1995ad;	
+}
+.field{
+	-fx-background-radius:5;
+}
+.field1{
+	-fx-background-radius:5;
+	-fx-background-color: #a1d6e2;
+	-fx-border-color: #1995ad;
+}	

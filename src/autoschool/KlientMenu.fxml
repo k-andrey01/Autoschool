@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@interface.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="autoschool.KlientController">
+   <children>
+      <SplitPane dividerPositions="0.15326633165829145" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" styleClass="ground" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Label layoutX="130.0" layoutY="-4.0" prefHeight="58.0" prefWidth="464.0" styleClass="title" text="                                Меню клиента" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="4.399999999999977" AnchorPane.topAnchor="-4.0" />
+                  <Button fx:id="first" mnemonicParsing="false" onAction="#vhod" prefHeight="58.0" prefWidth="127.0" styleClass="butn" text="На страницу&#10;входа" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TabPane prefHeight="346.4" prefWidth="598.4" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                      <Tab styleClass="field1" text="Запись на курс">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="262.0" prefWidth="598.0">
+                                 <children>
+                                    <Label layoutX="13.0" layoutY="14.0" prefHeight="20.0" prefWidth="117.0" styleClass="butn2" text="Выберите курс" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="14.0" />
+                                    <ComboBox fx:id="ChooseCourse" layoutX="132.0" layoutY="10.0" prefWidth="150.0" styleClass="field" AnchorPane.topAnchor="10.0" />
+                                    <Label layoutX="14.0" layoutY="43.0" prefHeight="20.0" prefWidth="117.0" styleClass="butn2" text="Фамилия" AnchorPane.leftAnchor="12.0" />
+                                    <TextField fx:id="myFam" layoutX="133.0" layoutY="39.0" styleClass="field" />
+                                    <Label layoutX="14.0" layoutY="72.0" prefHeight="20.0" prefWidth="117.0" styleClass="butn2" text="Имя" AnchorPane.leftAnchor="12.0" />
+                                    <TextField fx:id="myName" layoutX="133.0" layoutY="68.0" styleClass="field" />
+                                    <Label layoutX="13.0" layoutY="101.0" prefHeight="20.0" prefWidth="118.0" styleClass="butn2" text="Отчество" AnchorPane.leftAnchor="12.0" />
+                                    <TextField fx:id="myOtch" layoutX="133.0" layoutY="97.0" styleClass="field" />
+                                    <Label layoutX="12.0" layoutY="129.0" prefHeight="20.0" prefWidth="118.0" styleClass="butn2" text="Дата рождения" AnchorPane.leftAnchor="12.0" />
+                                    <TextField fx:id="myDate" layoutX="133.0" layoutY="125.0" styleClass="field" />
+                                    <Label layoutX="12.0" layoutY="158.0" prefHeight="20.0" prefWidth="118.0" styleClass="butn2" text="Номер телефона" AnchorPane.leftAnchor="12.0" />
+                                    <TextField fx:id="myTel" layoutX="133.0" layoutY="154.0" styleClass="field" />
+                                    <Label layoutX="12.0" layoutY="190.0" prefHeight="20.0" prefWidth="118.0" styleClass="butn2" text="Способ оплаты" AnchorPane.bottomAnchor="92.39999999999998" AnchorPane.leftAnchor="12.0" />
+                                    <ComboBox fx:id="oplata" layoutX="132.0" layoutY="186.0" prefWidth="150.0" styleClass="field" AnchorPane.bottomAnchor="90.79999999999998" />
+                                    <Label layoutX="298.0" layoutY="15.0" prefHeight="18.0" prefWidth="293.0" styleClass="butn31" text="Если Вы выбрали оплату онлайн, введите данные карты" AnchorPane.rightAnchor="6.7999999999999545" AnchorPane.topAnchor="15.0" />
+                                    <Label layoutX="299.0" layoutY="43.0" styleClass="butn2" text="Номер(без пробелов)" AnchorPane.rightAnchor="158.59999999999997" />
+                                    <Label layoutX="299.0" layoutY="72.0" prefHeight="18.0" prefWidth="140.0" styleClass="butn2" text="Срок действия(мм/гг)" AnchorPane.rightAnchor="158.59999999999997" />
+                                    <Label layoutX="299.0" layoutY="101.0" prefHeight="18.0" prefWidth="139.0" styleClass="butn2" text="CVC" AnchorPane.rightAnchor="158.59999999999997" />
+                                    <TextField fx:id="cardNumber" layoutX="440.0" layoutY="39.0" prefHeight="26.0" prefWidth="127.0" styleClass="field" AnchorPane.rightAnchor="10.0" />
+                                    <TextField fx:id="cardSrok" layoutX="440.0" layoutY="68.0" prefHeight="26.0" prefWidth="127.0" styleClass="field" AnchorPane.rightAnchor="10.0" />
+                                    <TextField fx:id="cardCVC" layoutX="440.0" layoutY="97.0" prefHeight="26.0" prefWidth="127.0" styleClass="field" AnchorPane.rightAnchor="10.0" />
+                                    <Button fx:id="give" layoutX="367.0" layoutY="164.0" mnemonicParsing="false" onAction="#giveZayav" styleClass="butn" text="Зарeгистрироваться" AnchorPane.bottomAnchor="107.99999999999997" AnchorPane.rightAnchor="74.59999999999997" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab styleClass="field1" text="Анализ курса">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <SplitPane layoutX="-1.0" layoutY="-2.0" prefHeight="319.0" prefWidth="598.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                             <children>
+                                                <TableView fx:id="AnalizTab" prefHeight="321.0" prefWidth="598.0" styleClass="title1" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.6000000000000227" AnchorPane.topAnchor="0.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="AnalizName" prefWidth="122.39992672204971" styleClass="butn3_1" text="Название" />
+                                                    <TableColumn fx:id="AnalizPrice" prefWidth="110.40008544921875" styleClass="butn3_1" text="Цена" />
+                                                      <TableColumn fx:id="AnalizTime" prefWidth="164.80001831054688" styleClass="butn3_1" text="Продолжительность" />
+                                                      <TableColumn fx:id="AnalizRating" prefWidth="204.00006103515625" styleClass="butn3_1" text="Качество" />
+                                                  </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab styleClass="field1" text="Моё расписание">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.5767940979208586" prefHeight="315.0" prefWidth="598.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                             <children>
+                                                <TableView fx:id="shedule" prefHeight="317.0" prefWidth="343.0" styleClass="title1" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.599999999999966" AnchorPane.topAnchor="0.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="sheduleTheme" prefWidth="75.0" styleClass="butn3_1" text="Тема" />
+                                                    <TableColumn fx:id="sheduleDate" prefWidth="84.79998779296875" styleClass="butn3_1" text="Дата" />
+                                                      <TableColumn fx:id="sheduleType" prefWidth="80.00006103515625" styleClass="butn3_1" text="Тип" />
+                                                      <TableColumn fx:id="sheduleStatus" prefWidth="103.99996948242188" styleClass="butn3_1" text="Статус" />
+                                                  </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                             <children>
+                                                <GridPane layoutY="14.0" prefHeight="291.0" prefWidth="251.0" styleClass="ground" AnchorPane.bottomAnchor="8.400000000000034" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.5999999999999943" AnchorPane.topAnchor="14.0">
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <Label prefHeight="18.0" prefWidth="126.0" styleClass="butn2" text="Тема" />
+                                                      <Label prefHeight="18.0" prefWidth="126.0" styleClass="butn2" text="Дата" GridPane.rowIndex="1" />
+                                                      <Label prefHeight="18.0" prefWidth="127.0" styleClass="butn2" text="Тип" GridPane.rowIndex="2" />
+                                                      <Label prefHeight="18.0" prefWidth="155.0" styleClass="butn2" text="Статус" GridPane.rowIndex="3" />
+                                                      <Label fx:id="mySheduleTheme" prefHeight="18.0" prefWidth="172.0" styleClass="title1" text="Label" GridPane.columnIndex="1" />
+                                                      <Label fx:id="mySheduleDate" prefHeight="18.0" prefWidth="135.0" styleClass="title1" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                      <Label fx:id="mySheduleType" prefHeight="18.0" prefWidth="154.0" styleClass="title1" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                      <Label fx:id="mySheduleStatus" prefHeight="18.0" prefWidth="150.0" styleClass="title1" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                          </AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab styleClass="field1" text="Тестирования">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.4996646545942321" prefHeight="304.8" prefWidth="598.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="ground">
+                                             <children>
+                                                <Label layoutX="6.0" layoutY="5.0" prefHeight="18.0" prefWidth="276.0" styleClass="title1" text="            Промежуточные тестирования" />
+                                                <TableView fx:id="test" layoutY="23.0" prefHeight="283.0" prefWidth="297.0" styleClass="title1" AnchorPane.bottomAnchor="-5.399999999999977" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.400000000000034" AnchorPane.topAnchor="23.0">
+                                                  <columns>
+                                                    <TableColumn fx:id="testDate" prefWidth="101.59999996423721" styleClass="butn3_1" text="Дата" />
+                                                    <TableColumn fx:id="testMistakes" prefWidth="98.4000244140625" styleClass="butn3_1" text="Ошибки" />
+                                                      <TableColumn fx:id="testResult" prefWidth="95.9999938964844" styleClass="butn3_1" text="Итог" />
+                                                  </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="ground">
+                                             <children>
+                                                <Label layoutX="9.0" layoutY="5.0" prefHeight="18.0" prefWidth="278.0" styleClass="title1" text="                                          Экзамен" />
+                                                <TableView fx:id="exam" layoutY="23.0" prefHeight="280.0" prefWidth="298.0" styleClass="title1" AnchorPane.bottomAnchor="-5.399999999999977" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.400000000000034" AnchorPane.topAnchor="23.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="examDate" prefWidth="101.59999996423721" styleClass="butn3_1" text="Дата" />
+                                                      <TableColumn fx:id="examMistakes" prefWidth="98.4000244140625" styleClass="butn3_1" text="Ошибки" />
+                                                      <TableColumn fx:id="examResult" prefWidth="95.9999938964844" styleClass="butn3_1" text="Итог" />
+                                                   </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab styleClass="field1" text="Другие действия">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Hyperlink fx:id="link" layoutX="215.0" layoutY="146.0" onAction="#goLink" text="Перейти к другим действиям" AnchorPane.bottomAnchor="133.2" AnchorPane.leftAnchor="215.0" AnchorPane.rightAnchor="214.59999999999997" />
+                                    <Label layoutX="67.0" layoutY="38.0" styleClass="butn2" text="Чтобы перейти к другим доступным действиям. нажмите на ссылку ниже" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="67.39999999999998" AnchorPane.topAnchor="38.0" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

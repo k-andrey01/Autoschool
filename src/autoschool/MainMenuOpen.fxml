@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@interface.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="autoschool.MainController">
+   <children>
+      <SplitPane dividerPositions="0.15577889447236182" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="62.0" prefWidth="598.0" styleClass="ground">
+               <children>
+                  <Label layoutX="131.0" layoutY="-4.0" prefHeight="58.0" prefWidth="463.0" styleClass="title" text="                 Общедоступные действия" AnchorPane.bottomAnchor="4.800000000000004" AnchorPane.leftAnchor="131.0" AnchorPane.rightAnchor="4.199999999999989" AnchorPane.topAnchor="-4.0" />
+                  <Button fx:id="first" mnemonicParsing="false" onAction="#vhod" prefHeight="58.0" prefWidth="127.0" styleClass="butn" text="На страницу&#10;входа" AnchorPane.bottomAnchor="0.8000000000000043" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TabPane layoutX="99.0" layoutY="36.0" prefHeight="346.4" prefWidth="598.4" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                      <Tab styleClass="field1" text="Наш автопарк">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="ground">
+                                 <children>
+                                    <ImageView fitHeight="105.0" fitWidth="154.0" layoutX="7.0" layoutY="12.0" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="12.0">
+                                       <image>
+                                          <Image url="@Renaut_arkana.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="102.0" fitWidth="154.0" layoutX="7.0" layoutY="117.0" AnchorPane.leftAnchor="7.0">
+                                       <image>
+                                          <Image url="@KIA_rio.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="103.0" fitWidth="155.0" layoutX="7.0" layoutY="219.0" AnchorPane.leftAnchor="7.0">
+                                       <image>
+                                          <Image url="@Hyunday_soliaris.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="184.0" layoutY="12.0" prefHeight="103.0" prefWidth="161.0" styleClass="butn3" text="Renaut Arkana, МКПП" AnchorPane.rightAnchor="252.79999999999998" AnchorPane.topAnchor="12.0" />
+                                    <Label layoutX="184.0" layoutY="114.0" prefHeight="103.0" prefWidth="164.0" styleClass="butn3" text="KIA Rio, МКПП" AnchorPane.rightAnchor="252.79999999999998" />
+                                    <Label layoutX="184.0" layoutY="216.0" prefHeight="102.0" prefWidth="168.0" styleClass="butn3" text="Hyunday Solaris, МКПП" AnchorPane.rightAnchor="252.79999999999998" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab styleClass="field1" text="Наши преподаватели">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="ground">
+                                 <children>
+                                    <Label layoutX="227.0" layoutY="14.0" prefHeight="120.0" prefWidth="342.0" styleClass="butn3" text="Иванов Иван Иванович&#10;09.10.1980&#10;Образование: высшее&#10;Категории: А, В, С, D" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="14.0" />
+                                    <Label layoutX="227.0" layoutY="133.0" prefHeight="133.0" prefWidth="342.0" styleClass="butn3" text="Петров Петр Петрович&#10;10.05.1978&#10;Образование: среднее специальное&#10;Категории: B, C" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="29.0" />
+                                    <ImageView fitHeight="120.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+                                       <image>
+                                          <Image url="@III.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="133.0" fitWidth="200.0" layoutX="14.0" layoutY="134.0" AnchorPane.bottomAnchor="34.60000000000002" AnchorPane.leftAnchor="14.0">
+                                       <image>
+                                          <Image url="@PPP.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab styleClass="field1" text="Наши инструктора">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="ground">
+                                 <children>
+                                    <Label layoutX="241.0" layoutY="14.0" prefHeight="82.0" prefWidth="342.0" styleClass="butn3" text="Иванов Иван Павлович&#10;09.12.1985&#10;Образование: высшее&#10;Категории: А, В, С" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="14.0" />
+                                    <Label layoutX="241.0" layoutY="111.0" prefHeight="82.0" prefWidth="342.0" styleClass="butn3" text="Петров Николай Петрович&#10;17.08.1978&#10;Образование: среднее специальное&#10;Категории: А, B" AnchorPane.rightAnchor="15.0" />
+                                    <Label layoutX="241.0" layoutY="208.0" prefHeight="82.0" prefWidth="342.0" styleClass="butn3" text="Захаров Захар Захарович&#10;31.05.1963&#10;Образование: среднее специальное&#10;Категории: В, С" AnchorPane.bottomAnchor="11.200000000000045" AnchorPane.rightAnchor="15.0" />
+                                    <ImageView fitHeight="85.0" fitWidth="158.0" layoutX="41.0" layoutY="14.0" AnchorPane.leftAnchor="41.0" AnchorPane.topAnchor="14.0">
+                                       <image>
+                                          <Image url="@IIP.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="78.0" fitWidth="158.0" layoutX="42.0" layoutY="113.0" AnchorPane.leftAnchor="41.0">
+                                       <image>
+                                          <Image url="@PNP.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="80.0" fitWidth="160.0" layoutX="40.0" layoutY="209.0" AnchorPane.bottomAnchor="12.600000000000023" AnchorPane.leftAnchor="40.0">
+                                       <image>
+                                          <Image url="@ZZZ.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab styleClass="field1" text="Наши курсы">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="354.0" prefWidth="598.0" styleClass="ground">
+                                       <children>
+                                          <Label layoutX="4.0" layoutY="7.0" prefHeight="46.0" prefWidth="262.0" styleClass="butn2" text="Категория А--16000р" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="7.0" />
+                                          <Label layoutX="4.0" layoutY="81.0" prefHeight="46.0" prefWidth="262.0" styleClass="butn2" text="Категория В--27000р." AnchorPane.leftAnchor="4.0" />
+                                          <Label layoutX="4.0" layoutY="160.0" prefHeight="46.0" prefWidth="262.0" styleClass="butn2" text="Категория С--18000р." AnchorPane.leftAnchor="4.0" />
+                                          <Label layoutX="4.0" layoutY="225.0" prefHeight="46.0" prefWidth="262.0" styleClass="butn2" text="Доп. вождение--300р" AnchorPane.bottomAnchor="83.0" AnchorPane.leftAnchor="4.0" />
+                                          <Label layoutX="266.0" layoutY="7.0" prefHeight="61.0" prefWidth="323.0" styleClass="butn3" text="Обучение на мотоциклах. Открываемые категории: А, А1, В1, M&#10;Преподаватель: Иванов Иван Иванович, &#10;Инструктор: Иванов Иван Павлович" AnchorPane.rightAnchor="9.199999999999932" AnchorPane.topAnchor="7.0" />
+                                          <Label layoutX="266.0" layoutY="69.0" prefHeight="70.0" prefWidth="323.0" styleClass="butn3" text="Обучение на легковых. Открываемые категории: В, В1,  M&#10;Преподаватель: Петров Петр Петрович, &#10;Инструктора: все работающие в автошколе" AnchorPane.rightAnchor="9.199999999999932" />
+                                          <Label layoutX="266.0" layoutY="144.0" prefHeight="78.0" prefWidth="323.0" styleClass="butn3" text="Обучение на грузовых. Открываемые категории: С&#10;Преподаватель: Иванов Иван Иванович&#10;Инструктор: Захаров Захар Захарович" AnchorPane.rightAnchor="9.199999999999932" />
+                                          <Label layoutX="266.0" layoutY="223.0" prefHeight="50.0" prefWidth="323.0" styleClass="butn3" text="Транспорт и инструктор зависят от категории. &#10;Теории нет. Цена за час" AnchorPane.bottomAnchor="81.0" AnchorPane.rightAnchor="9.199999999999932" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab styleClass="field1" text="Лицензия">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="ground">
+                                 <children>
+                                    <ImageView fitHeight="290.0" fitWidth="571.0" layoutX="13.0" layoutY="10.0" AnchorPane.bottomAnchor="1.6000000000000227" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="14.399999999999977" AnchorPane.topAnchor="10.0">
+                                       <image>
+                                          <Image url="@license.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
